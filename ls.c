@@ -677,7 +677,7 @@ void long_disp(ls_file_t *info, int UNUSED_PARM(*col), int options)
   // show link target
   if ((info->inode.i_mode & 0170000) == 0120000) {
     char *lt = (char*)info->inode.i_block;
-    printf(" -> %s ", lt);
+    printf(" -> %s\t", lt);
   }
 
   if (options & SELINUX_OPT)
