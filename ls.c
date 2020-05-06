@@ -677,8 +677,13 @@ void long_disp(ls_file_t *info, int UNUSED_PARM(*col), int options)
   // show link target
   if ((info->inode.i_mode & 0170000) == 0120000) {
     char *lt = (char*)info->inode.i_block;
-    printf(" -> %s\t", lt);
+    printf(" -> %s", lt);
   }
+
+  if ((options & SELINUX_OPT) || (options & CAPS_OPT))
+    {
+      printf("\t");
+    }
 
   if (options & SELINUX_OPT)
     {
